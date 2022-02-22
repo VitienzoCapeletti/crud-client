@@ -20,6 +20,11 @@ public class ClientResource {
         return service.create(clientRequestDTO);
     }
 
+    @PutMapping()
+    public ClientDTO update(@RequestBody ClientDTO clientDTO) {
+        return service.update(clientDTO);
+    }
+
     @GetMapping()
     public List<ClientDTO> findAll() {
         return service.findAll();

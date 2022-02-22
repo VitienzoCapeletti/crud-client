@@ -8,5 +8,8 @@ import org.mapstruct.Mapper;
 @Mapper()
 public interface ClientMapper {
     Client buildClientEntity(ClientRequestDTO client);
+
+    Client buildClientEntity(ClientDTO client);
+
     ClientDTO buildClientDTO(Client client);
 }

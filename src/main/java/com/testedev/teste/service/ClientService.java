@@ -7,7 +7,6 @@ import com.testedev.teste.model.repository.ClientRepository;
 import com.testedev.teste.util.mapper.ClientMapper;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -32,7 +31,8 @@ public class ClientService {
     }
 
     public ClientDTO update(ClientDTO clientDTO) {
-        final var client = findEntityById(clientDTO.getId());
+        findEntityById(clientDTO.getId());
+        final var client = mapper.buildClientEntity(clientDTO);
         return saveClient(client);
     }
 
